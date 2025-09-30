@@ -1,5 +1,5 @@
 // src/sections/Contact.jsx
-import React from "react";
+import React, { useState } from "react";
 import {
   FaGithub,
   FaInstagram,
@@ -10,6 +10,30 @@ import {
 } from "react-icons/fa";
 
 export default function Contact() {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending...");
+
+    const formData = new FormData(event.target);
+    formData.append("access_key", "1a4cc572-ec21-4218-ac67-e249857fe00d"); // 🔑 replace with your Web3Forms key
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Message sent successfully ✅");
+      event.target.reset();
+    } else {
+      setResult(data.message || "Something went wrong ❌");
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -52,13 +76,15 @@ export default function Contact() {
             </p>
           </div>
 
-          <form className="space-y-6">
+          <form onSubmit={onSubmit} className="space-y-6">
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-300 block">
                 Full Name
               </label>
               <input
                 type="text"
+                name="name"
+                required
                 placeholder="Enter your full name"
                 className="w-full px-5 py-4 rounded-2xl bg-slate-900/60 border border-slate-600/50 
                          text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/50 focus:border-indigo-400/50
@@ -72,6 +98,8 @@ export default function Contact() {
               </label>
               <input
                 type="email"
+                name="email"
+                required
                 placeholder="Enter your email address"
                 className="w-full px-5 py-4 rounded-2xl bg-slate-900/60 border border-slate-600/50 
                          text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/50 focus:border-indigo-400/50
@@ -84,6 +112,8 @@ export default function Contact() {
                 Message
               </label>
               <textarea
+                name="message"
+                required
                 placeholder="Tell me about your project or just say hi..."
                 rows="5"
                 className="w-full px-5 py-4 rounded-2xl bg-slate-900/60 border border-slate-600/50 
@@ -101,6 +131,9 @@ export default function Contact() {
               Send Message
             </button>
           </form>
+          {result && (
+            <p className="text-center mt-4 text-sm text-gray-300">{result}</p>
+          )}
 
           {/* Social Links */}
           <div className="mt-10 space-y-4">
@@ -150,7 +183,6 @@ export default function Contact() {
             </div>
           </div>
         </div>
-
         {/* Right Column */}
         <div className="bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-10 shadow-2xl">
           {/* Services & Availability */}
