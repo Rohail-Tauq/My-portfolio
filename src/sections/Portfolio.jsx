@@ -111,71 +111,138 @@ export default function Portfolio() {
 
         {/* Content */}
         {activeTab === "projects" ? (
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {/* Only Project Card */}
-            <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+  <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+    {/* Weather App */}
+    <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-400/20 to-indigo-400/20 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg
-                    className="w-8 h-8 text-purple-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                    />
-                  </svg>
-                </div>
+      <div className="relative z-10">
+        <div className="w-16 h-16 bg-gradient-to-br from-purple-400/20 to-indigo-400/20 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <svg
+            className="w-8 h-8 text-purple-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+            />
+          </svg>
+        </div>
 
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-300 transition-colors duration-300">
-                  Weather App
-                </h3>
-                <p className="text-gray-400 mb-6 leading-relaxed text-base">
-                  A responsive weather forecast application built with React.js
-                  and CSS. Features real-time weather data, location search.
-                </p>
+        <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-300 transition-colors duration-300">
+          Weather App
+        </h3>
+        <p className="text-gray-400 mb-6 leading-relaxed text-base">
+          A responsive weather forecast application built with React.js and
+          Tailwind CSS. Features real-time weather data and location search.
+        </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-xs font-medium border border-cyan-400/20">
-                    React
-                  </span>
-                  <span className="px-3 py-1 bg-sky-400/10 text-sky-300 rounded-full text-xs font-medium border border-sky-400/20">
-                    Tailwind
-                  </span>
-                  <span className="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full text-xs font-medium border border-yellow-400/20">
-                    API
-                  </span>
-                </div>
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-xs font-medium border border-cyan-400/20">
+            React
+          </span>
+          <span className="px-3 py-1 bg-sky-400/10 text-sky-300 rounded-full text-xs font-medium border border-sky-400/20">
+            Tailwind
+          </span>
+          <span className="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full text-xs font-medium border border-yellow-400/20">
+            API
+          </span>
+        </div>
 
-                <a
-                  href="https://rohailweatherforecast.vercel.app/"
-                  className="group/link inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 font-semibold transition-all duration-300"
-                >
-                  <span>View Project</span>
-                  <svg
-                    className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        ) : (
+        <a
+          href="https://rohailweatherforecast.vercel.app/"
+          className="group/link inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 font-semibold transition-all duration-300"
+        >
+          <span>View Project</span>
+          <svg
+            className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    {/* Expense Tracker */}
+    <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <div className="relative z-10">
+        <div className="w-16 h-16 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <svg
+            className="w-8 h-8 text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8c-2.21 0-4 .79-4 3s1.79 3 4 3 4 .79 4 3-1.79 3-4 3M8 6h8"
+            />
+          </svg>
+        </div>
+
+        <h3 className="text-2xl font-bold mb-4 group-hover:text-green-300 transition-colors duration-300">
+          Expense Tracker
+        </h3>
+        <p className="text-gray-400 mb-6 leading-relaxed text-base">
+          A full-stack MERN application for tracking income and expenses. 
+          Features authentication, category-based charts, and real-time balance 
+          updates with an intuitive dashboard.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="px-3 py-1 bg-green-400/10 text-green-300 rounded-full text-xs font-medium border border-green-400/20">
+            MongoDB
+          </span>
+          <span className="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full text-xs font-medium border border-yellow-400/20">
+            Express
+          </span>
+          <span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-xs font-medium border border-cyan-400/20">
+            React
+          </span>
+          <span className="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs font-medium border border-green-400/20">
+            Node.js
+          </span>
+        </div>
+
+        <a
+          href="https://rohailexpensetracker.vercel.app"
+          className="group/link inline-flex items-center space-x-2 text-green-400 hover:text-green-300 font-semibold transition-all duration-300"
+        >
+          <span>View Project</span>
+          <svg
+            className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+) :  (
           <div className="space-y-12">
             <div className="text-center">
               <h3 className="text-2xl font-semibold mb-4 text-gray-200">
