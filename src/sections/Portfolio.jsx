@@ -18,6 +18,8 @@ import {
   SiMongodb,
 } from "react-icons/si";
 
+import elevvo from "../imgs/Elevvo.png";
+
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("projects");
 
@@ -50,10 +52,11 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Toggle Buttons */}
+        {/* Tabs */}
         <div className="flex justify-center mb-16">
           <div className="bg-slate-800/20 border border-slate-600/20 rounded-2xl p-2 backdrop-blur-sm">
             <div className="flex space-x-2">
+              {/* Projects Button */}
               <button
                 onClick={() => setActiveTab("projects")}
                 className={`relative px-8 py-4 rounded-xl font-medium transition-all duration-500 ${
@@ -62,24 +65,22 @@ export default function Portfolio() {
                     : "text-gray-300 hover:text-white hover:bg-slate-700/30"
                 }`}
               >
-                <span className="relative z-10 flex items-center space-x-2">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                    />
-                  </svg>
-                  <span>Projects</span>
-                </span>
+                Projects
               </button>
 
+              {/* Certificates Button */}
+              <button
+                onClick={() => setActiveTab("certificates")}
+                className={`relative px-8 py-4 rounded-xl font-medium transition-all duration-500 ${
+                  activeTab === "certificates"
+                    ? "bg-gradient-to-r from-purple-500/80 to-indigo-500/80 text-white shadow-lg shadow-purple-500/25"
+                    : "text-gray-300 hover:text-white hover:bg-slate-700/30"
+                }`}
+              >
+                Certificates
+              </button>
+
+              {/* Tech Stack Button */}
               <button
                 onClick={() => setActiveTab("tech")}
                 className={`relative px-8 py-4 rounded-xl font-medium transition-all duration-500 ${
@@ -88,9 +89,23 @@ export default function Portfolio() {
                     : "text-gray-300 hover:text-white hover:bg-slate-700/30"
                 }`}
               >
-                <span className="relative z-10 flex items-center space-x-2">
+                Tech Stack
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        {activeTab === "projects" ? (
+          // === PROJECTS TAB ===
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {/* Example Project Card (Weather App) */}
+            <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-400/20 to-indigo-400/20 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8 text-purple-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -99,150 +114,149 @@ export default function Portfolio() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
                     />
                   </svg>
-                  <span>Tech Stack</span>
-                </span>
-              </button>
+                </div>
+
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-300 transition-colors duration-300">
+                  Weather App
+                </h3>
+                <p className="text-gray-400 mb-6 leading-relaxed text-base">
+                  A responsive weather forecast app built with React.js and
+                  Tailwind CSS. It provides real-time weather updates and
+                  location-based searches.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-xs font-medium border border-cyan-400/20">
+                    React
+                  </span>
+                  <span className="px-3 py-1 bg-sky-400/10 text-sky-300 rounded-full text-xs font-medium border border-sky-400/20">
+                    Tailwind
+                  </span>
+                  <span className="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full text-xs font-medium border border-yellow-400/20">
+                    API
+                  </span>
+                </div>
+
+                <a
+                  href="https://rohailweatherforecast.vercel.app/"
+                  className="group/link inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 font-semibold transition-all duration-300"
+                >
+                  <span>View Project</span>
+                  <svg
+                    className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Expense Tracker */}
+            <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg
+                    className="w-8 h-8 text-green-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8c-2.21 0-4 .79-4 3s1.79 3 4 3 4 .79 4 3-1.79 3-4 3M8 6h8"
+                    />
+                  </svg>
+                </div>
+
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-green-300 transition-colors duration-300">
+                  Expense Tracker
+                </h3>
+                <p className="text-gray-400 mb-6 leading-relaxed text-base">
+                  A MERN app for tracking income and expenses. Includes
+                  authentication, category charts, and real-time updates.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-green-400/10 text-green-300 rounded-full text-xs font-medium border border-green-400/20">
+                    MongoDB
+                  </span>
+                  <span className="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full text-xs font-medium border border-yellow-400/20">
+                    Express
+                  </span>
+                  <span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-xs font-medium border border-cyan-400/20">
+                    React
+                  </span>
+                  <span className="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs font-medium border border-green-400/20">
+                    Node.js
+                  </span>
+                </div>
+
+                <a
+                  href="https://rohailexpensetracker.vercel.app"
+                  className="group/link inline-flex items-center space-x-2 text-green-400 hover:text-green-300 font-semibold transition-all duration-300"
+                >
+                  <span>View Project</span>
+                  <svg
+                    className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        ) : activeTab === "certificates" ? (
+          // === CERTIFICATES TAB ===
+          <div className="flex flex-col items-center justify-center space-y-8">
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-4 text-gray-200">
+                Certifications
+              </h3>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                A showcase of my achievements and completed professional
+                courses.
+              </p>
+            </div>
 
-        {/* Content */}
-        {activeTab === "projects" ? (
-  <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-    {/* Weather App */}
-    <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-      <div className="relative z-10">
-        <div className="w-16 h-16 bg-gradient-to-br from-purple-400/20 to-indigo-400/20 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-          <svg
-            className="w-8 h-8 text-purple-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-            />
-          </svg>
-        </div>
-
-        <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-300 transition-colors duration-300">
-          Weather App
-        </h3>
-        <p className="text-gray-400 mb-6 leading-relaxed text-base">
-          A responsive weather forecast application built with React.js and
-          Tailwind CSS. Features real-time weather data and location search.
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-6">
-          <span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-xs font-medium border border-cyan-400/20">
-            React
-          </span>
-          <span className="px-3 py-1 bg-sky-400/10 text-sky-300 rounded-full text-xs font-medium border border-sky-400/20">
-            Tailwind
-          </span>
-          <span className="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full text-xs font-medium border border-yellow-400/20">
-            API
-          </span>
-        </div>
-
-        <a
-          href="https://rohailweatherforecast.vercel.app/"
-          className="group/link inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 font-semibold transition-all duration-300"
-        >
-          <span>View Project</span>
-          <svg
-            className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    {/* Expense Tracker */}
-    <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-      <div className="relative z-10">
-        <div className="w-16 h-16 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-          <svg
-            className="w-8 h-8 text-green-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 8c-2.21 0-4 .79-4 3s1.79 3 4 3 4 .79 4 3-1.79 3-4 3M8 6h8"
-            />
-          </svg>
-        </div>
-
-        <h3 className="text-2xl font-bold mb-4 group-hover:text-green-300 transition-colors duration-300">
-          Expense Tracker
-        </h3>
-        <p className="text-gray-400 mb-6 leading-relaxed text-base">
-          A full-stack MERN application for tracking income and expenses. 
-          Features authentication, category-based charts, and real-time balance 
-          updates with an intuitive dashboard.
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-6">
-          <span className="px-3 py-1 bg-green-400/10 text-green-300 rounded-full text-xs font-medium border border-green-400/20">
-            MongoDB
-          </span>
-          <span className="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full text-xs font-medium border border-yellow-400/20">
-            Express
-          </span>
-          <span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-xs font-medium border border-cyan-400/20">
-            React
-          </span>
-          <span className="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs font-medium border border-green-400/20">
-            Node.js
-          </span>
-        </div>
-
-        <a
-          href="https://rohailexpensetracker.vercel.app"
-          className="group/link inline-flex items-center space-x-2 text-green-400 hover:text-green-300 font-semibold transition-all duration-300"
-        >
-          <span>View Project</span>
-          <svg
-            className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-) :  (
+            {/* Certificate Card */}
+            <div className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-3xl p-8 shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-3xl opacity-0"></div>
+              <div className="relative z-10 flex flex-col items-center space-y-6">
+                <img
+                  src={elevvo}
+                  alt="Certificate"
+                  className="rounded-2xl shadow-lg w-full md:w-3/4 lg:w-1/2"
+                />
+                <h4 className="text-xl font-semibold text-purple-300">
+                  Elevvo Web Development Certification
+                </h4>
+              </div>
+            </div>
+          </div>
+        ) : (
+          // === TECH STACK TAB ===
           <div className="space-y-12">
             <div className="text-center">
               <h3 className="text-2xl font-semibold mb-4 text-gray-200">
@@ -250,7 +264,7 @@ export default function Portfolio() {
               </h3>
               <p className="text-gray-400 max-w-3xl mx-auto">
                 A comprehensive toolkit of modern technologies and tools that I
-                use to create exceptional digital experiences
+                use to create exceptional digital experiences.
               </p>
             </div>
 
@@ -277,27 +291,15 @@ export default function Portfolio() {
                   className="group relative bg-gradient-to-br from-slate-800/40 to-slate-700/30 border border-slate-600/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 hover:-translate-y-2"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
                   <div className="relative z-10 flex flex-col items-center text-center space-y-3">
                     <div className="p-3 bg-slate-700/30 rounded-xl group-hover:bg-slate-600/40 transition-colors duration-300">
-                      <Icon
-                        className={`${color} text-4xl group-hover:scale-110 transition-transform duration-300`}
-                      />
+                      <Icon className={`${color} text-4xl group-hover:scale-110 transition-transform duration-300`} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
                         {name}
                       </h4>
                       <p className="text-xs text-gray-400 mt-1">{category}</p>
-                    </div>
-                  </div>
-
-                  {/* Skill level indicator */}
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex space-x-1">
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
                     </div>
                   </div>
                 </div>
